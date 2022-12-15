@@ -140,10 +140,14 @@ ENV APACHE_RUN_USER www-data
 ENV PHP_VERSION 7.2.5
 
 ENV PORT 8080
+ENV TZ Asia/Kolkata
 ENV WEBSITE_ROLE_INSTANCE_ID localRoleInstance
 ENV WEBSITE_INSTANCE_ID localInstance
 ENV PATH ${PATH}:/home/site/wwwroot
 
 WORKDIR /var/www/html
+
+COPY hostingstart.html /home/site/wwwroot/hostingstart.html
+COPY test.html /home/site/wwwroot/test.html
 
 ENTRYPOINT ["/bin/init_container.sh"]
